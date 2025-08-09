@@ -12,17 +12,30 @@
     <header>
         <nav class="container">
             <a href="#home" class="logo">Hatake Hugo</a>
-            <ul id="nav-links">
+            <ul id="nav-links" class="hidden md:flex">
                 <li><a href="#about">My Story</a></li>
                 <li><a href="#projects">Ventures</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button id="mobile-menu-button" class="md:hidden">
+            <button id="mobile-menu-button" class="md:hidden text-2xl">
                 <i class="fas fa-bars"></i>
             </button>
         </nav>
     </header>
+
+    <div id="mobile-menu" class="mobile-menu-overlay">
+        <div class="mobile-menu-content">
+            <button id="close-mobile-menu" class="close-btn">&times;</button>
+            <ul>
+                <li><a href="#about">My Story</a></li>
+                <li><a href="#projects">Ventures</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
 
     <main>
         <section id="home">
@@ -117,10 +130,19 @@
             <div class="container">
                 <h2>Contact Me</h2>
                 <p style="text-align:center; max-width: 600px; margin: 0 auto 2rem auto;">I am actively seeking partners and associates to collaborate on FlowBooks and ActionPad, and to expand HatakeKB across Europe. For consulting, business inquiries, or media requests, please reach out.</p>
-                <form action="https://formspree.io/f/mjkojvvl" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" rows="7" placeholder="Your Message" required></textarea>
+                <form id="contact-form" action="https://formspree.io/f/mjkojvvl" method="POST" novalidate>
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" id="message" rows="7" placeholder="Your Message" required></textarea>
+                        <span class="error-message"></span>
+                    </div>
                     <button type="submit" class="btn">Send Message</button>
                 </form>
             </div>
