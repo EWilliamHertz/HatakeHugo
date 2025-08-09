@@ -52,18 +52,23 @@ nav {
     text-decoration: none;
 }
 
-nav ul li {
+#nav-links {
+    display: flex;
+    list-style: none;
+}
+
+#nav-links li {
     margin-left: 25px;
 }
 
-nav ul li a {
+#nav-links li a {
     color: var(--text-color);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
+#nav-links li a:hover {
     color: var(--primary-color);
 }
 
@@ -79,9 +84,23 @@ section {
     justify-content: center;
     text-align: center;
     border-bottom: none;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+#home .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 #home .content {
+    position: relative;
+    z-index: 1;
     max-width: 800px;
 }
 
@@ -166,12 +185,14 @@ p {
     font-size: 1.5rem;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
+    display: block; /* Ensures title is on its own line */
 }
 
 .project-card .status {
     font-style: italic;
     color: #aaa;
     margin-bottom: 1rem;
+    display: block; /* Ensures status/date is on its own line */
 }
 
 .project-card p {
@@ -197,7 +218,7 @@ form {
 }
 
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 0; /* Adjusted for error message spacing */
 }
 
 form input, form textarea {
@@ -206,6 +227,7 @@ form input, form textarea {
     border-radius: 5px;
     padding: 15px;
     width: 100%;
+    margin-bottom: 5px; /* Spacing before error message */
     color: var(--text-color);
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
@@ -213,13 +235,16 @@ form input, form textarea {
 
 form input.error, form textarea.error {
     border-color: #ff5555;
+    margin-bottom: 0;
 }
 
 .error-message {
     color: #ff5555;
     font-size: 0.8rem;
-    margin-top: 5px;
+    margin-top: 0;
+    margin-bottom: 1rem; /* Spacing after error message */
     display: block;
+    height: 1em; /* Reserve space to prevent layout shift */
 }
 
 
@@ -228,6 +253,10 @@ footer {
     padding: 2rem 0;
     font-size: 0.9rem;
     color: #aaa;
+}
+
+.social-links {
+    margin-top: 1rem;
 }
 
 .social-links a {
@@ -253,6 +282,7 @@ footer {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */
     height: 0;
+    margin-top: 1rem;
 }
 .video-container iframe {
     position: absolute;
@@ -288,6 +318,7 @@ footer {
     height: 100%;
     background-color: var(--bg-color);
     padding: 2rem;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
     transition: right 0.3s ease;
 }
 
@@ -297,7 +328,7 @@ footer {
 
 .mobile-menu-content ul {
     list-style: none;
-    padding: 0;
+    padding: 40px 0 0 0;
 }
 
 .mobile-menu-content ul li {
@@ -308,12 +339,13 @@ footer {
     color: var(--text-color);
     text-decoration: none;
     font-size: 1.2rem;
+    font-weight: 600;
 }
 
 .close-btn {
     position: absolute;
     top: 1rem;
-    right: 1rem;
+    right: 1.5rem;
     background: none;
     border: none;
     color: var(--text-color);
@@ -323,11 +355,6 @@ footer {
 
 
 @media (max-width: 768px) {
-    h1 { font-size: 3rem; }
+    h1 { font-size: 2.5rem; }
     h2 { font-size: 2.2rem; }
-    #nav-links { display: none; }
-}
-
-@media (min-width: 769px) {
-    #mobile-menu-button { display: none; }
 }
