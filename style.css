@@ -75,14 +75,6 @@ nav ul li a:hover {
 section {
     padding: 100px 0;
     border-bottom: 1px solid var(--secondary-color);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-section.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 #home {
@@ -91,23 +83,10 @@ section.visible {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
-
-#home .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    border-bottom: none;
 }
 
 #home .content {
-    position: relative;
-    z-index: 1;
     max-width: 800px;
 }
 
@@ -125,7 +104,7 @@ h2 {
     margin-bottom: 2rem;
     text-align: center;
 }
-        
+
 h3 {
     font-size: 1.8rem;
     color: var(--primary-color);
@@ -147,7 +126,6 @@ h3 {
     border-radius: 5px;
     font-weight: 600;
     transition: background-color 0.3s ease;
-    margin: 5px;
 }
 
 .btn:hover {
@@ -163,6 +141,11 @@ p {
     margin: 0 auto;
 }
 
+.highlight {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -174,6 +157,8 @@ p {
     border-radius: 8px;
     padding: 1.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card:hover {
@@ -181,51 +166,32 @@ p {
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    background: #000;
+.project-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.project-card .status {
+    font-style: italic;
+    color: #aaa;
+    margin-bottom: 1rem;
+}
+
+.project-card p {
+    flex-grow: 1;
+}
+
+.project-card a {
     margin-top: 1rem;
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
 }
 
 .service-item {
     background: var(--secondary-color);
     padding: 2rem;
     border-radius: 8px;
-}
-
-.memoir-content {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
-
-.book-cover img {
-    max-width: 300px;
-    height: auto;
-    border-radius: 8px;
-}
-
-.purchase-buttons {
-    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 form {
@@ -255,8 +221,8 @@ footer {
 
 .social-links a {
     color: var(--text-color);
-    text-decoration: none;
     margin: 0 10px;
+    font-size: 1.5rem;
     transition: color 0.3s ease;
 }
 
@@ -264,12 +230,35 @@ footer {
     color: var(--primary-color);
 }
 
+.birthday-note {
+    background-color: rgba(139, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
 @media (max-width: 768px) {
     h1 { font-size: 3rem; }
     h2 { font-size: 2.2rem; }
-    nav ul { display: none; }
-    .memoir-content {
-        flex-direction: column;
-        text-align: center;
-    }
+    #nav-links { display: none; }
+    #mobile-menu-button { display: block; }
+}
+
+@media (min-width: 769px) {
+    #mobile-menu-button { display: none; }
 }
