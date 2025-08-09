@@ -1,35 +1,31 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const sections = document.querySelectorAll('section');
+// Simple fade-in on scroll
+const faders = document.querySelectorAll('section');
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const navLinks = document.getElementById('nav-links');
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
+const appearOptions = {
+    threshold: 0.2,
+};
 
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-
-    const form = document.querySelector('form');
-    form.addEventListener('submit', function(e) {
-        const inputs = form.querySelectorAll('input, textarea');
-        let isValid = true;
-        inputs.forEach(input => {
-            if (!input.value) {
-                isValid = false;
-                input.style.borderColor = 'red';
-            } else {
-                input.style.borderColor = '#333';
-            }
-        });
-        if (!isValid) {
-            e.preventDefault();
-            alert('Please fill out all fields.');
+const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+            return;
+        } else {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = "translateY(0)";
+            appearOnScroll.unobserve(entry.target);
         }
     });
+}, appearOptions);
+
+faders.forEach(fader => {
+    fader.style.opacity = 0;
+    fader.style.transform = "translateY(20px)";
+    fader.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
+    appearOnScroll.observe(fader);
+});
+
+mobileMenuButton.addEventListener('click', () => {
+    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
 });
