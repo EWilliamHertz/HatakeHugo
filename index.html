@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hatake Hugo - Strategist | Entrepreneur | Author</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap');
+
+        :root {
+            --bg-color: #121212;
+            --text-color: #EAEAEA;
+            --primary-color: #8B0000;
+            --secondary-color: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        section {
+            padding: 100px 0;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
+        #home {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-bottom: none;
+        }
+
+        #home .content {
+            max-width: 800px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        #home p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #6d0000;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .about-content, .services-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .project-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-card .status {
+            font-style: italic;
+            color: #aaa;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            flex-grow: 1;
+        }
+
+        .project-card a {
+            margin-top: 1rem;
+        }
+        
+        .service-item {
+            background: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        form input, form textarea {
+            background: var(--secondary-color);
+            border: 1px solid #333;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        .birthday-note {
+            background-color: rgba(139, 0, 0, 0.2);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.2rem; }
+            nav ul { display: none; } /* Simple approach for mobile, can be replaced with a burger menu */
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">Hatake Hugo</a>
+            <ul>
+                <li><a href="#about">My Story</a></li>
+                <li><a href="#projects">Ventures</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="content">
+                <h1>Ernst-William "Hatake Hugo" Hertz</h1>
+                <p>Strategist. Entrepreneur. Author. From the crucible of chaos, a new path is forged through intellect, resilience, and an unbreakable will to build.</p>
+                <a href="#about" class="btn">Discover My Journey</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container about-content">
+                <h2>My Story: A Memoir in Motion</h2>
+                <p>My life is not a simple story. Born Ernst-William Hertz on December 5, 1998, my path has been one of extreme contradictions. It's a journey that led me through the worlds of high-level strategy in games like <span class="highlight">Magic: The Gathering</span>, to the complex logistics of international narcotics, to the absolute solitude of a psychiatric ward after being sentenced for murder.</p>
+                
+                <p>I am not defined by my past, but I am shaped by it. The skills I honed in the underworld—risk assessment, supply chain management, crisis negotiation, and strategic planning under life-or-death pressure—were part of an unorthodox and brutal education. My experiences on Pusher Street in Christiania and managing operations across three countries taught me lessons no business school ever could.</p>
+
+                <p>My turning point was a life-altering event that led to my incarceration. Facing a lifetime sentence for the killing of Tobias Ahlberg, a member of the Satudarah MC, I made a strategic choice. I architected a persona of paranoid schizophrenia to be sentenced to forensic psychiatric care instead of Kumla prison. This was the ultimate high-stakes gambit, a testament to adapting when all other options have failed.</p>
+                
+                <p>This entire saga is chronicled in my autobiography, <span class="highlight">”Hatake Hugo - Memoirs from the Psychward”</span>, a raw account of my choices and their consequences, published across more than 50 platforms. It is not a glorification, but a testimony and a cautionary tale.</p>
+                
+                <p>Today, from within the walls of a psychiatric ward in Falköping, my focus has been reborn. I have been sober since March 2020. I channel my energy, intellect, and relentless drive into legitimate, innovative ventures. The same mind that navigated chaos now builds systems for growth and efficiency.</p>
+                
+                <div class="birthday-note">
+                    <p>On December 5th, 2025, I will turn 27. This birthday marks another year of transformation, a step further away from a destructive past and deeper into a future I am actively building. It is a milestone of resilience and a promise of the constructive impact I am determined to make.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2>Current Ventures & Platforms</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h4>Hatake.eu</h4>
+                        <p class="status">Active Development (Since Feb 2025)</p>
+                        <p>My primary company, HatakeKB, is developing Hatake.eu - a next-generation social media and marketplace platform for the Trading Card Game community. The goal is to innovate and compete directly with giants like TCGPlayer and CardMarket by creating a superior user experience and feature set. All development is done from my iPad.</p>
+                        <a href="https://hatake.eu" target="_blank" class="btn">Visit Hatake.eu</a>
+                    </div>
+                    <div class="project-card">
+                        <h4>FlowBooks</h4>
+                        <p class="status">Active Development (Since Aug 2025)</p>
+                        <p>An AI-powered bookkeeping platform designed to automate financial management for startups and small businesses. FlowBooks aims to provide a seamless, intuitive service to create invoices and manage company finances, challenging established players like Fortnox and Bookio.</p>
+                        <a href="https://ewilliamhertz.github.io/Flowbooks3/" target="_blank" class="btn">View on GitHub</a>
+                    </div>
+                    <div class="project-card">
+                        <h4>ActionPad</h4>
+                        <p class="status">Active Development (Since Aug 2025)</p>
+                        <p>A project management tool built for dynamic teams. ActionPad synchronizes tasks, features a team chat, and automatically translates project data between English, Swedish, and Mandarin. It's designed to streamline the workflow for my core company, HatakeKB, and its future subsidiaries.</p>
+                        <a href="https://ewilliamhertz.github.io/ActionPad/" target="_blank" class="btn">View on GitHub</a>
+                    </div>
+                    <div class="project-card">
+                        <h4>BestBuds</h4>
+                        <p class="status">Discontinued (Valuable Lessons Learned)</p>
+                        <p>A global harm-reduction cannabis venture for which I secured 17 domain names (.se, .dk, .fi, .es, etc.) and over 90,000 SEK in investment. The project, which included product development of CBD e-juices and supplements, was halted by my incarceration. It remains a powerful lesson in ambition, finance, and the impact of unforeseen circumstances.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container services-content">
+                <h2>Consulting & Services</h2>
+                <p>My unique path has given me a rare and potent skillset. I offer strategic consulting for those navigating complex challenges where conventional solutions are not enough.</p>
+                
+                <div class="service-item">
+                    <h3>Startup & Company Architecture</h3>
+                    <p>Leverage my experience to build your venture from the ground up. I can assist with registering your company in various countries and structuring it for optimal growth and resilience, drawing from my experience establishing entities like HatakeKB.</p>
+                </div>
+
+                <div class="service-item">
+                    <h3>Unconventional Supply Chain & Import Consulting</h3>
+                    <p>Utilize my extensive network of over 30 manufacturing contacts in China. I can help you design, source, and import a wide variety of merchandise to create your own brand. My future plans include importing a production line for TCG merchandise to Sweden by 2033.</p>
+                </div>
+
+                <div class="service-item">
+                    <h3>Full-Stack Web Application Development</h3>
+                    <p>With proficiency in HTML, CSS, and JavaScript, I can architect and develop the web applications you need to power your business. My current projects—Hatake.eu, FlowBooks, and ActionPad—are a testament to my capabilities in creating functional, modern platforms from scratch.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Contact Me</h2>
+                <p style="text-align:center; max-width: 600px; margin: 0 auto 2rem auto;">I am actively seeking partners and associates to collaborate on FlowBooks and ActionPad, and to expand HatakeKB across Europe. For consulting, business inquiries, or media requests, please reach out.</p>
+                <form action="https://formspree.io/f/your_form_id" method="POST"> <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="7" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ernst-William "Hatake Hugo" Hertz. All Rights Reserved. Forged in Falköping.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple fade-in on scroll
+        const faders = document.querySelectorAll('section');
+
+        const appearOptions = {
+            threshold: 0.2,
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = "translateY(0)";
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            fader.style.opacity = 0;
+            fader.style.transform = "translateY(20px)";
+            fader.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+</html>
